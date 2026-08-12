@@ -1,0 +1,12 @@
+const header=document.querySelector('.site-header');
+const menuButton=document.querySelector('.menu-toggle');
+const menu=document.querySelector('.main-nav');
+const setHeader=()=>header.classList.toggle('is-scrolled',window.scrollY>70);
+setHeader();window.addEventListener('scroll',setHeader,{passive:true});
+menuButton.addEventListener('click',()=>{const open=menu.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('[data-interest]').forEach(link=>link.addEventListener('click',()=>{document.querySelector('#interest').value=link.dataset.interest}));
+document.querySelector('#contact-form').addEventListener('submit',event=>{event.preventDefault();const f=new FormData(event.currentTarget);const text=[`Olá, sou ${f.get('name')} da empresa ${f.get('company')||'não informada'}.`,`Meu interesse: ${f.get('interest')}.`,`Desafio: ${f.get('message')}`,`Contato: ${f.get('email')}${f.get('phone')?' | '+f.get('phone'):''}`].join('\n\n');window.open(`https://wa.me/5519920041267?text=${encodeURIComponent(text)}`,'_blank','noopener')});
+document.querySelector('#year').textContent=new Date().getFullYear();
