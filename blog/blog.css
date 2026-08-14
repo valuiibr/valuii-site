@@ -6,3 +6,20 @@
 .footer-brand img{width:min(210px,100%);height:auto;object-fit:contain}
 @media(max-width:650px){.footer-brand img{width:min(190px,100%)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Padrão editorial: todo artigo possui fotografia de destaque responsiva. */
+.featured-visual{overflow:hidden;background:#dbe7ed}
+.featured-visual:before,.featured-visual:after{display:none}
+.featured-visual img{width:100%;height:100%;min-height:410px;object-fit:cover;transition:transform .45s ease}
+.featured-visual:hover img{transform:scale(1.025)}
+.post-card{min-height:460px;padding:0;overflow:hidden}
+.post-image{display:block;overflow:hidden;aspect-ratio:16/9;background:#dbe7ed}
+.post-image img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.post-card:hover .post-image img{transform:scale(1.035)}
+.post-card-copy{display:flex;flex:1;flex-direction:column;padding:27px 32px 32px}
+.post-card .meta{margin-top:25px}
+.article-cover{margin-top:48px;margin-bottom:0;overflow:hidden;background:#dbe7ed;box-shadow:var(--shadow)}
+.article-cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.article-cover+.article-layout{padding-top:62px}
+@media(max-width:900px){.featured-visual img{min-height:270px}}
+@media(max-width:650px){.featured-visual img{min-height:220px}.post-card-copy{padding:24px 24px 28px}.article-cover{margin-top:28px}.article-cover+.article-layout{padding-top:42px}}
