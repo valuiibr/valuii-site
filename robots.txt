@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /valuation/
 
 Sitemap: https://www.valuii.com.br/sitemap.xml
