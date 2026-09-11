@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valuii Business Valuation | Área Restrita</title>
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#061f42">
+  <link rel="icon" type="image/png" href="../assets/favicon-valuii.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+  <style>
+    :root{--navy:#061f42;--navy2:#092d59;--cyan:#0aa9b8;--cyan2:#4fd2dc;--ink:#102036;--muted:#627083;--line:#dbe3ea;--soft:#f3f7f9;--white:#fff;--danger:#a32626;--ok:#087f6a;--shadow:0 20px 55px rgba(4,28,58,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Avenir Next",Avenir,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#edf3f6;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+    .gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(145deg,#03152e,#092d59);padding:24px}.gate-card{width:min(440px,100%);background:white;padding:38px;box-shadow:0 30px 80px rgba(0,0,0,.28)}.gate-logo{width:220px;margin:0 auto 28px;display:block}.gate h1{font-size:1.7rem;margin:0 0 8px;text-align:center;color:var(--navy)}.gate p{text-align:center;color:var(--muted);font-size:.9rem;margin:0 0 24px}.gate label{display:block;font-size:.76rem;font-weight:800;color:#445164}.gate input{width:100%;margin-top:7px;border:1px solid var(--line);padding:13px 14px;border-radius:4px;outline:none}.gate input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(10,169,184,.12)}.gate button{width:100%;border:0;background:var(--cyan);color:white;font-weight:800;padding:14px;border-radius:4px;margin-top:14px}.gate-msg{min-height:22px;margin-top:12px!important;color:var(--danger)!important;font-size:.78rem!important}
+    .topbar{background:var(--navy);color:white;position:sticky;top:0;z-index:50;box-shadow:0 8px 22px rgba(0,0,0,.14)}.topbar-inner{max-width:1220px;margin:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}.topbar img{width:180px}.topbar .product{font-size:.8rem;color:#b9d6df;letter-spacing:.06em}.topbar-actions{display:flex;gap:10px}.btn{border:0;border-radius:4px;padding:10px 15px;font-weight:800;font-size:.82rem}.btn.primary{background:var(--cyan);color:white}.btn.secondary{background:white;color:var(--navy)}.btn.ghost{background:transparent;color:white;border:1px solid rgba(255,255,255,.28)}
+    main{max-width:1220px;margin:0 auto;padding:34px 24px 70px}.intro{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:26px}.intro h1{font-size:clamp(2rem,4vw,3.4rem);margin:0;color:var(--navy);letter-spacing:-.04em}.intro p{max-width:760px;color:var(--muted);margin:10px 0 0}.privacy-note{background:#e4f6f7;border:1px solid #c1e7ea;color:#11636c;padding:12px 14px;font-size:.78rem;max-width:330px}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:24px;align-items:start}.panel{background:white;border:1px solid #dce5eb;box-shadow:0 10px 30px rgba(4,28,58,.06);margin-bottom:18px}.panel-head{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}.step{width:29px;height:29px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:white;font-size:.72rem;font-weight:900}.panel-head h2{font-size:1.08rem;margin:0;color:var(--navy)}.panel-body{padding:22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.field label{display:block;font-size:.72rem;font-weight:800;color:#435165;margin-bottom:6px}.field small{display:block;color:#84909e;font-size:.67rem;margin-top:5px}.field input,.field select,.field textarea{width:100%;border:1px solid #d5dfe6;background:#f9fbfc;padding:11px 12px;border-radius:4px;outline:none;color:var(--ink)}.field textarea{min-height:86px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(10,169,184,.1);background:white}.span2{grid-column:span 2}.span3{grid-column:span 3}.subhead{font-size:.78rem;color:#078c9a;font-weight:900;letter-spacing:.1em;margin:22px 0 12px;text-transform:uppercase}.subhead:first-child{margin-top:0}
+    .side{position:sticky;top:90px}.summary{background:var(--navy);color:white;padding:24px;box-shadow:var(--shadow)}.summary h3{margin:0 0 18px;font-size:1.1rem}.metric{padding:14px 0;border-top:1px solid rgba(255,255,255,.13)}.metric:first-of-type{border-top:0}.metric span{display:block;font-size:.68rem;color:#9fb7ca;text-transform:uppercase;letter-spacing:.08em}.metric strong{display:block;font-size:1.28rem;margin-top:3px}.metric strong.accent{color:var(--cyan2)}.summary-note{font-size:.69rem;color:#9fb7ca;margin:14px 0 0}.status{margin-top:16px;background:white;padding:16px;border:1px solid var(--line);font-size:.76rem;color:var(--muted)}.status b{color:var(--navy)}
+    .actions-bottom{display:flex;gap:12px;justify-content:flex-end;margin-top:24px;flex-wrap:wrap}.actions-bottom .btn{padding:13px 20px}.btn.light{background:white;border:1px solid var(--line);color:var(--navy)}.errorbox{display:none;background:#fff1f1;border:1px solid #f0caca;color:#8b2323;padding:13px 15px;margin:0 0 18px;font-size:.82rem}.errorbox.show{display:block}.okbox{display:none;background:#effaf7;border:1px solid #c7e9df;color:#176b5a;padding:13px 15px;margin:0 0 18px;font-size:.82rem}.okbox.show{display:block}
+    footer{background:#03152e;color:#8fa5ba;padding:28px 24px;text-align:center;font-size:.72rem}footer strong{color:white}
+    @media(max-width:980px){.layout{grid-template-columns:1fr}.side{position:static}.intro{grid-template-columns:1fr}.privacy-note{max-width:none}.grid.four{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:650px){.topbar-inner{padding:12px 16px}.topbar img{width:145px}.topbar .product{display:none}.topbar-actions .secondary{display:none}main{padding:26px 14px 50px}.grid,.grid.three,.grid.four{grid-template-columns:1fr}.span2,.span3{grid-column:span 1}.panel-body{padding:18px}.intro h1{font-size:2.15rem}.gate-card{padding:28px 22px}}
+    @media print{.gate,.topbar,.side,.actions-bottom,.privacy-note,footer{display:none!important}body{background:white}main{max-width:none;padding:0}.panel{box-shadow:none;break-inside:avoid}.intro{display:block}}
+  </style>
+</head>
+<body>
+  <section class="gate" id="gate" aria-label="Acesso restrito">
+    <div class="gate-card">
+      <img class="gate-logo" src="../assets/logo-valuii-dark.png" alt="Valuii Inteligência em Negócios">
+      <h1>Valuii Business Valuation</h1>
+      <p>Ferramenta interna de avaliação econômico-financeira.</p>
+      <form id="loginForm">
+        <label>Senha de acesso
+          <input id="accessPassword" type="password" inputmode="numeric" autocomplete="off" required>
+        </label>
+        <button type="submit">Acessar ferramenta</button>
+        <p class="gate-msg" id="gateMsg"></p>
+      </form>
+    </div>
+  </section>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div style="display:flex;align-items:center;gap:18px"><img src="../assets/logo-valuii-light.png" alt="Valuii"><span class="product">BUSINESS VALUATION</span></div>
+      <div class="topbar-actions"><button class="btn secondary" type="button" id="btnCalculateTop">Calcular valuation</button><button class="btn primary" type="button" id="btnPdfTop">Gerar PDF</button><button class="btn ghost" type="button" id="btnLock">Sair</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div><h1>Valuii Business Valuation</h1><p>Modelo interno para avaliação de empresas por Fluxo de Caixa Descontado e múltiplos de mercado informados pelo responsável técnico.</p></div>
+      <div class="privacy-note"><strong>Privacidade:</strong> os dados preenchidos permanecem somente nesta página durante a sessão e não são gravados no site.</div>
+    </section>
+    <div class="errorbox" id="errorBox"></div><div class="okbox" id="okBox"></div>
+
+    <div class="layout">
+      <div>
+        <section class="panel">
+          <div class="panel-head"><span class="step">1</span><h2>Identificação da empresa e do trabalho</h2></div>
+          <div class="panel-body grid">
+            <div class="field"><label>Razão social *</label><input id="companyName" required></div>
+            <div class="field"><label>CNPJ / identificação</label><input id="companyId"></div>
+            <div class="field"><label>Cidade / UF</label><input id="companyCity"></div>
+            <div class="field"><label>Setor</label><input id="companySector" placeholder="Ex.: Hotelaria"></div>
+            <div class="field"><label>Data-base *</label><input id="valuationDate" type="date" required></div>
+            <div class="field"><label>Ano de fundação</label><input id="foundationYear" type="number" min="1800" max="2100"></div>
+            <div class="field span2"><label>Descrição resumida / contexto</label><textarea id="companyContext" placeholder="Características do negócio, estrutura societária, estágio de maturidade, fatos relevantes e observações do consultor."></textarea></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><span class="step">2</span><h2>Dados econômico-financeiros do ano-base</h2></div>
+          <div class="panel-body grid three">
+            <div class="field"><label>Receita líquida anual (R$) *</label><input id="revenue" type="number" step="0.01" min="0"></div>
+            <div class="field"><label>EBIT (R$) *</label><input id="ebit" type="number" step="0.01"></div>
+            <div class="field"><label>EBITDA (R$)</label><input id="ebitda" type="number" step="0.01"></div>
+            <div class="field"><label>Lucro líquido (R$)</label><input id="netIncome" type="number" step="0.01"></div>
+            <div class="field"><label>Dívida financeira (R$) *</label><input id="debt" type="number" step="0.01" min="0"></div>
+            <div class="field"><label>Caixa e equivalentes (R$) *</label><input id="cash" type="number" step="0.01" min="0"></div>
+            <div class="field"><label>Patrimônio líquido / capital próprio (R$) *</label><input id="equityBook" type="number" step="0.01" min="0"><small>Usado na ponderação do WACC.</small></div>
+            <div class="field"><label>Capital investido (R$)</label><input id="investedCapital" type="number" step="0.01" min="0"></div>
+            <div class="field"><label>Ativos não operacionais (R$)</label><input id="nonOperating" type="number" step="0.01" min="0" value="0"></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><span class="step">3</span><h2>Premissas de projeção e risco</h2></div>
+          <div class="panel-body">
+            <div class="subhead">Projeções</div>
+            <div class="grid four">
+              <div class="field"><label>Crescimento anual da receita (%) *</label><input id="salesGrowth" type="number" step="0.01" value="10"></div>
+              <div class="field"><label>Crescimento anual do EBIT (%) *</label><input id="ebitGrowth" type="number" step="0.01" value="10"></div>
+              <div class="field"><label>ROIC projetado (%) *</label><input id="roicProjected" type="number" step="0.01" value="25"><small>Base para estimar o reinvestimento.</small></div>
+              <div class="field"><label>Crescimento na perpetuidade (%) *</label><input id="terminalGrowth" type="number" step="0.01" value="4"></div>
+            </div>
+            <div class="subhead">Custo de capital</div>
+            <div class="grid four">
+              <div class="field"><label>Taxa livre de risco (%) *</label><input id="riskFree" type="number" step="0.01"></div>
+              <div class="field"><label>Beta *</label><input id="beta" type="number" step="0.01"></div>
+              <div class="field"><label>Prêmio de risco de mercado (%) *</label><input id="erp" type="number" step="0.01"></div>
+              <div class="field"><label>Risco-país (%) *</label><input id="countryRisk" type="number" step="0.01"></div>
+              <div class="field"><label>Custo da dívida antes de impostos (%) *</label><input id="costDebt" type="number" step="0.01"></div>
+              <div class="field"><label>Alíquota efetiva / marginal (%) *</label><input id="taxRate" type="number" step="0.01" value="34"></div>
+              <div class="field"><label>Desconto de iliquidez (%)</label><input id="illiquidity" type="number" step="0.01" value="15"></div>
+              <div class="field"><label>Horizonte explícito</label><input value="5 anos" disabled></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><span class="step">4</span><h2>Múltiplos de mercado</h2></div>
+          <div class="panel-body">
+            <p style="margin-top:0;color:var(--muted);font-size:.82rem">Os múltiplos devem ser informados pelo responsável técnico com base em fonte de mercado identificável. A ferramenta não utiliza base proprietária de terceiros.</p>
+            <div class="grid three">
+              <div class="field"><label>EV / Sales (x)</label><input id="multipleSales" type="number" step="0.01" min="0"><small>Opcional.</small></div>
+              <div class="field"><label>EV / EBIT (x)</label><input id="multipleEbit" type="number" step="0.01" min="0"><small>Opcional.</small></div>
+              <div class="field"><label>EV / EBITDA (x)</label><input id="multipleEbitda" type="number" step="0.01" min="0"><small>Opcional.</small></div>
+              <div class="field span3"><label>Fonte / justificativa dos múltiplos</label><textarea id="multipleSource" placeholder="Ex.: Damodaran, base de transações comparáveis, empresas listadas selecionadas, data de referência e ajustes efetuados."></textarea></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><span class="step">5</span><h2>Responsável técnico e conclusão</h2></div>
+          <div class="panel-body grid">
+            <div class="field"><label>Responsável técnico *</label><input id="responsibleName" placeholder="Nome completo"></div>
+            <div class="field"><label>Qualificação / cargo</label><input id="responsibleTitle" placeholder="Ex.: Economista | Consultor"></div>
+            <div class="field"><label>Registro profissional</label><input id="professionalId" placeholder="Ex.: CORECON/SP ..."></div>
+            <div class="field"><label>Local de emissão</label><input id="issuePlace" placeholder="Ex.: Piracicaba/SP"></div>
+            <div class="field span2"><label>Conclusão e observações do responsável</label><textarea id="technicalConclusion" placeholder="Registre ressalvas, premissas críticas, faixa de valor considerada adequada e demais conclusões técnicas."></textarea></div>
+          </div>
+        </section>
+
+        <div class="actions-bottom"><button class="btn light" type="button" id="btnClear">Limpar formulário</button><button class="btn primary" type="button" id="btnCalculate">Calcular valuation</button><button class="btn secondary" style="background:var(--navy);color:white" type="button" id="btnPdf">Gerar relatório em PDF</button></div>
+      </div>
+
+      <aside class="side">
+        <div class="summary">
+          <h3>Resumo do valuation</h3>
+          <div class="metric"><span>Custo do capital próprio</span><strong id="sumKe">—</strong></div>
+          <div class="metric"><span>WACC</span><strong id="sumWacc">—</strong></div>
+          <div class="metric"><span>Enterprise Value por DCF</span><strong id="sumEv">—</strong></div>
+          <div class="metric"><span>Equity Value antes da iliquidez</span><strong id="sumEquityBefore">—</strong></div>
+          <div class="metric"><span>Valuation DCF ajustado</span><strong class="accent" id="sumDcf">—</strong></div>
+          <div class="metric"><span>Faixa indicativa entre métodos</span><strong id="sumRange">—</strong></div>
+          <p class="summary-note">O resultado depende integralmente dos dados e premissas inseridos pelo responsável técnico.</p>
+        </div>
+        <div class="status"><b>Metodologia:</b> FCFF / DCF como método principal, múltiplos como abordagem relativa complementar e análise de sensibilidade de WACC e perpetuidade no relatório.</div>
+      </aside>
+    </div>
+  </main>
+
+  <footer><strong>Valuii Inteligência em Negócios</strong><br>Ferramenta interna de apoio a avaliações econômico-financeiras.</footer>
+
+<script>
+(() => {
+  'use strict';
+  const ACCESS_HASH='06b44e33c3b91507a8d2068fbcf813d63995d76c0601d41d4d3c8c5c472d0988';
+  const $=id=>document.getElementById(id);
+  const money=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2}).format(Number(v||0));
+  const pct=v=>`${(Number(v||0)*100).toFixed(2).replace('.',',')}%`;
+  const num=id=>{const v=parseFloat($(id).value); return Number.isFinite(v)?v:0};
+  const txt=id=>$(id).value.trim();
+  const rate=id=>num(id)/100;
+  let lastResult=null;
+
+  async function sha256(text){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+  $('loginForm').addEventListener('submit',async e=>{e.preventDefault();$('gateMsg').textContent='';const h=await sha256($('accessPassword').value);if(h===ACCESS_HASH){$('gate').classList.add('hidden');$('accessPassword').value='';setTimeout(()=>$('companyName').focus(),120)}else{$('gateMsg').textContent='Senha inválida.';$('accessPassword').select()}});
+  $('btnLock').addEventListener('click',()=>{$('gate').classList.remove('hidden');lastResult=null;$('sumKe').textContent=$('sumWacc').textContent=$('sumEv').textContent=$('sumEquityBefore').textContent=$('sumDcf').textContent=$('sumRange').textContent='—'});
+
+  function validate(){
+    const required=[['companyName','Razão social'],['valuationDate','Data-base'],['revenue','Receita'],['ebit','EBIT'],['debt','Dívida'],['cash','Caixa'],['equityBook','Patrimônio líquido'],['salesGrowth','Crescimento da receita'],['ebitGrowth','Crescimento do EBIT'],['roicProjected','ROIC projetado'],['terminalGrowth','Crescimento na perpetuidade'],['riskFree','Taxa livre de risco'],['beta','Beta'],['erp','Prêmio de risco'],['countryRisk','Risco-país'],['costDebt','Custo da dívida'],['taxRate','Alíquota tributária'],['responsibleName','Responsável técnico']];
+    const missing=required.filter(([id])=>$(id).value==='').map(([,name])=>name);
+    if(missing.length) throw new Error('Preencha os campos obrigatórios: '+missing.join(', ')+'.');
+    if(num('equityBook')+num('debt')<=0) throw new Error('Patrimônio líquido e dívida não podem resultar em estrutura de capital igual a zero.');
+    if(rate('roicProjected')<=0) throw new Error('O ROIC projetado deve ser superior a zero.');
+    if(rate('taxRate')<0 || rate('taxRate')>=1) throw new Error('A alíquota tributária deve ficar entre 0% e 100%.');
+  }
+
+  function performDCF(waccOverride=null, terminalOverride=null){
+    const revenue0=num('revenue'), ebit0=num('ebit'), debt=num('debt'), cash=num('cash'), nonOp=num('nonOperating');
+    const sg=rate('salesGrowth'), eg=rate('ebitGrowth'), roic=rate('roicProjected'), tax=rate('taxRate'), illiq=rate('illiquidity');
+    const rf=rate('riskFree'), beta=num('beta'), erp=rate('erp'), cr=rate('countryRisk'), kd=rate('costDebt');
+    const E=num('equityBook'), D=debt, ke=rf+beta*erp+cr;
+    const wacc=waccOverride ?? (ke*(E/(D+E)) + kd*(1-tax)*(D/(D+E)));
+    const tg=terminalOverride ?? rate('terminalGrowth');
+    if(wacc<=tg) throw new Error('O WACC deve ser superior à taxa de crescimento na perpetuidade.');
+    const reinvestRate=eg/roic;
+    let revenue=revenue0, ebit=ebit0, pvSum=0; const years=[];
+    for(let y=1;y<=5;y++){
+      revenue*=1+sg; ebit*=1+eg;
+      const nopat=ebit*(1-tax); const reinvest=nopat*reinvestRate; const fcff=nopat-reinvest; const df=1/Math.pow(1+wacc,y); const pv=fcff*df; pvSum+=pv;
+      years.push({year:y,revenue,ebit,nopat,reinvest,fcff,df,pv});
+    }
+    const terminalFcff=years[4].fcff*(1+tg); const terminalValue=terminalFcff/(wacc-tg); const pvTerminal=terminalValue/Math.pow(1+wacc,5);
+    const enterpriseValue=pvSum+pvTerminal; const equityBefore=enterpriseValue-debt+cash+nonOp; const equityAdjusted=equityBefore*(1-illiq);
+    return {ke,wacc,tg,reinvestRate,years,terminalValue,pvTerminal,enterpriseValue,equityBefore,equityAdjusted};
+  }
+
+  function calculate(showMessage=true){
+    try{
+      validate(); const dcf=performDCF(); const methods=[{name:'DCF',value:dcf.equityAdjusted}];
+      const debt=num('debt'), cash=num('cash'), nonOp=num('nonOperating'), illiq=rate('illiquidity');
+      const convert=ev=>(ev-debt+cash+nonOp)*(1-illiq);
+      const ms=num('multipleSales'), me=num('multipleEbit'), med=num('multipleEbitda');
+      if(ms>0) methods.push({name:'EV/Sales',value:convert(num('revenue')*ms)});
+      if(me>0) methods.push({name:'EV/EBIT',value:convert(num('ebit')*me)});
+      if(med>0 && num('ebitda')!==0) methods.push({name:'EV/EBITDA',value:convert(num('ebitda')*med)});
+      const vals=methods.map(m=>m.value).filter(Number.isFinite); const min=Math.min(...vals),max=Math.max(...vals),avg=vals.reduce((a,b)=>a+b,0)/vals.length;
+      lastResult={dcf,methods,min,max,avg,generatedAt:new Date()};
+      $('sumKe').textContent=pct(dcf.ke);$('sumWacc').textContent=pct(dcf.wacc);$('sumEv').textContent=money(dcf.enterpriseValue);$('sumEquityBefore').textContent=money(dcf.equityBefore);$('sumDcf').textContent=money(dcf.equityAdjusted);$('sumRange').textContent=vals.length>1?`${money(min)} a ${money(max)}`:money(dcf.equityAdjusted);
+      $('errorBox').classList.remove('show'); if(showMessage){$('okBox').textContent='Valuation calculado com sucesso. Revise as premissas antes de emitir o relatório.';$('okBox').classList.add('show');setTimeout(()=>$('okBox').classList.remove('show'),4500)}
+      return lastResult;
+    }catch(err){$('errorBox').textContent=err.message;$('errorBox').classList.add('show');$('okBox').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'});return null}
+  }
+
+  function formatDateBR(iso){if(!iso)return '';const [y,m,d]=iso.split('-');return `${d}/${m}/${y}`}
+  function safeText(s){return s||'Não informado'}
+  async function logoData(){try{const r=await fetch('../assets/logo-valuii-dark.png');const b=await r.blob();return await new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.onerror=rej;fr.readAsDataURL(b)})}catch{return null}}
+
+  async function generatePdf(){
+    const result=calculate(false); if(!result) return;
+    if(!window.jspdf || !window.jspdf.jsPDF){$('errorBox').textContent='Não foi possível carregar o gerador de PDF. Verifique a conexão com a internet e tente novamente.';$('errorBox').classList.add('show');return}
+    const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'mm',format:'a4'}); const W=210,H=297,M=17; const navy=[6,31,66],cyan=[10,169,184],ink=[16,32,54],muted=[98,112,131],light=[243,247,249];
+    const logo=await logoData(); let pageNo=1;
+    const footer=()=>{doc.setDrawColor(219,227,234);doc.line(M,H-15,W-M,H-15);doc.setFontSize(7);doc.setTextColor(...muted);doc.text('Valuii Inteligência em Negócios | Valuii Business Valuation',M,H-9);doc.text(`Página ${pageNo}`,W-M,H-9,{align:'right'})};
+    const header=title=>{if(pageNo>1){if(logo)doc.addImage(logo,'PNG',M,10,43,17);doc.setFontSize(7);doc.setTextColor(...muted);doc.text('VALUII BUSINESS VALUATION',W-M,17,{align:'right'});doc.setDrawColor(219,227,234);doc.line(M,31,W-M,31)}doc.setFontSize(17);doc.setTextColor(...navy);doc.setFont(undefined,'bold');doc.text(title,M,pageNo>1?43:45);doc.setFont(undefined,'normal')};
+    const newPage=title=>{footer();doc.addPage();pageNo++;header(title);return pageNo>1?51:53};
+    const addWrapped=(text,x,y,width,size=9,color=ink)=>{doc.setFontSize(size);doc.setTextColor(...color);const lines=doc.splitTextToSize(safeText(text),width);doc.text(lines,x,y);return y+lines.length*(size*.42+1.2)};
+
+    doc.setFillColor(...navy);doc.rect(0,0,W,H,'F'); if(logo)doc.addImage(logo,'PNG',M,25,58,23); else{doc.setTextColor(255,255,255);doc.setFontSize(26);doc.text('Valuii',M,38)}
+    doc.setTextColor(79,210,220);doc.setFontSize(9);doc.setFont(undefined,'bold');doc.text('RELATÓRIO DE AVALIAÇÃO ECONÔMICO-FINANCEIRA',M,91);doc.setTextColor(255,255,255);doc.setFontSize(26);doc.text('Valuii Business Valuation',M,108);doc.setFontSize(16);doc.setFont(undefined,'normal');doc.text(safeText(txt('companyName')),M,123,{maxWidth:175});doc.setFontSize(9);doc.setTextColor(200,216,229);doc.text(`Data-base: ${formatDateBR(txt('valuationDate'))}`,M,139);if(txt('companyId'))doc.text(`Identificação: ${txt('companyId')}`,M,146);doc.text(`Relatório emitido em ${new Date().toLocaleDateString('pt-BR')}`,M,153);doc.setDrawColor(79,210,220);doc.setLineWidth(1);doc.line(M,174,75,174);doc.setFontSize(8);doc.setTextColor(167,187,204);doc.text('Documento de uso profissional. O valor depende dos dados, premissas e julgamentos técnicos declarados no relatório.',M,187,{maxWidth:170});
+    footer();
+
+    doc.addPage();pageNo++;header('1. Sumário Executivo');let y=52;
+    doc.setFillColor(...light);doc.roundedRect(M,y,W-2*M,43,2,2,'F');doc.setFontSize(8);doc.setTextColor(...muted);doc.text('VALUATION DCF AJUSTADO',M+7,y+10);doc.setFontSize(20);doc.setTextColor(...navy);doc.setFont(undefined,'bold');doc.text(money(result.dcf.equityAdjusted),M+7,y+24);doc.setFontSize(8);doc.setTextColor(...muted);doc.setFont(undefined,'normal');doc.text(`WACC ${pct(result.dcf.wacc)} | Enterprise Value ${money(result.dcf.enterpriseValue)}`,M+7,y+34);
+    y+=54;doc.setFontSize(10);doc.setTextColor(...ink);doc.text('Síntese dos resultados',M,y);doc.autoTable({startY:y+5,head:[['Método','Equity Value ajustado']],body:result.methods.map(m=>[m.name,money(m.value)]),theme:'grid',styles:{fontSize:8,cellPadding:3,textColor:ink},headStyles:{fillColor:navy,textColor:[255,255,255]},margin:{left:M,right:M}});y=doc.lastAutoTable.finalY+8;
+    if(result.methods.length>1){doc.setFontSize(8.5);doc.setTextColor(...muted);doc.text(`Faixa indicativa entre métodos: ${money(result.min)} a ${money(result.max)}. Média aritmética indicativa: ${money(result.avg)}.`,M,y,{maxWidth:176});y+=14}
+    doc.setFontSize(9);doc.setTextColor(...ink);doc.text('O DCF é adotado como método principal nesta ferramenta. Os múltiplos são utilizados como referência relativa complementar, quando informados pelo responsável técnico.',M,y,{maxWidth:176});
+
+    y=newPage('2. Perfil da Empresa Avaliada');
+    const profile=[['Razão social',safeText(txt('companyName'))],['CNPJ / identificação',safeText(txt('companyId'))],['Cidade / UF',safeText(txt('companyCity'))],['Setor',safeText(txt('companySector'))],['Data-base',formatDateBR(txt('valuationDate'))],['Ano de fundação',safeText(txt('foundationYear'))]];
+    doc.autoTable({startY:y,body:profile,theme:'grid',styles:{fontSize:8,cellPadding:3,textColor:ink},columnStyles:{0:{fontStyle:'bold',cellWidth:55}},margin:{left:M,right:M}});y=doc.lastAutoTable.finalY+10;doc.setFontSize(10);doc.setTextColor(...navy);doc.setFont(undefined,'bold');doc.text('Contexto do trabalho',M,y);doc.setFont(undefined,'normal');y=addWrapped(txt('companyContext'),M,y+7,176,8.5,muted);
+    y+=7;doc.setFontSize(10);doc.setTextColor(...navy);doc.setFont(undefined,'bold');doc.text('Dados do ano-base',M,y);doc.setFont(undefined,'normal');doc.autoTable({startY:y+5,head:[['Indicador','Valor']],body:[['Receita líquida',money(num('revenue'))],['EBIT',money(num('ebit'))],['EBITDA',money(num('ebitda'))],['Lucro líquido',money(num('netIncome'))],['Dívida financeira',money(num('debt'))],['Caixa e equivalentes',money(num('cash'))],['Patrimônio líquido / capital próprio',money(num('equityBook'))],['Capital investido',money(num('investedCapital'))],['Ativos não operacionais',money(num('nonOperating'))]],theme:'grid',styles:{fontSize:8,cellPadding:2.6,textColor:ink},headStyles:{fillColor:navy,textColor:[255,255,255]},margin:{left:M,right:M}});
+
+    y=newPage('3. Metodologia e Premissas');
+    y=addWrapped('A avaliação principal é realizada pelo método do Fluxo de Caixa Descontado para a Firma (FCFF). Os fluxos operacionais projetados são descontados pelo custo médio ponderado de capital (WACC). O valor terminal é calculado pelo modelo de crescimento em perpetuidade. O valor do patrimônio é obtido a partir do Enterprise Value, ajustado por dívida, caixa, ativos não operacionais e desconto de iliquidez informado.',M,y,176,8.7,ink)+6;
+    doc.autoTable({startY:y,head:[['Premissa','Valor']],body:[['Crescimento anual da receita',`${num('salesGrowth').toFixed(2)}%`],['Crescimento anual do EBIT',`${num('ebitGrowth').toFixed(2)}%`],['ROIC projetado',`${num('roicProjected').toFixed(2)}%`],['Reinvestimento estimado',pct(result.dcf.reinvestRate)],['Crescimento na perpetuidade',`${num('terminalGrowth').toFixed(2)}%`],['Desconto de iliquidez',`${num('illiquidity').toFixed(2)}%`]],theme:'grid',styles:{fontSize:8,cellPadding:3,textColor:ink},headStyles:{fillColor:navy,textColor:[255,255,255]},margin:{left:M,right:M}});y=doc.lastAutoTable.finalY+9;
+    doc.setFontSize(10);doc.setTextColor(...navy);doc.setFont(undefined,'bold');doc.text('Risco e custo de capital',M,y);doc.setFont(undefined,'normal');doc.autoTable({startY:y+5,head:[['Componente','Valor']],body:[['Taxa livre de risco',`${num('riskFree').toFixed(2)}%`],['Beta',num('beta').toFixed(2)],['Prêmio de risco de mercado',`${num('erp').toFixed(2)}%`],['Risco-país',`${num('countryRisk').toFixed(2)}%`],['Custo do capital próprio (Ke)',pct(result.dcf.ke)],['Custo da dívida antes de impostos',`${num('costDebt').toFixed(2)}%`],['Alíquota tributária',`${num('taxRate').toFixed(2)}%`],['WACC',pct(result.dcf.wacc)]],theme:'grid',styles:{fontSize:8,cellPadding:2.7,textColor:ink},headStyles:{fillColor:navy,textColor:[255,255,255]},margin:{left:M,right:M}});
+
+    y=newPage('4. Projeções Financeiras e DCF');
+    doc.autoTable({startY:y,head:[['Ano','Receita','EBIT','NOPAT','Reinvest.','FCFF','VP FCFF']],body:result.dcf.years.map((r,i)=>[String(i+1),money(r.revenue),money(r.ebit),money(r.nopat),money(r.reinvest),money(r.fcff),money(r.pv)]),theme:'grid',styles:{fontSize:6.8,cellPadding:2.2,textColor:ink},headStyles:{fillColor:navy,textColor:[255,255,255]},margin:{left:M,right:M}});y=doc.lastAutoTable.finalY+9;
+    doc.autoTable({startY:y,body:[['Valor terminal',money(result.dcf.terminalValue)],['Valor presente do terminal',money(result.dcf.pvTerminal)],['Enterprise Value',money(result.dcf.enterpriseValue)],['(-) Dívida financeira',money(num('debt'))],['(+) Caixa e equivalentes',money(num('cash'))],['(+) Ativos não operacionais',money(num('nonOperating'))],['Equity Value antes da iliquidez',money(result.dcf.equityBefore)],['Desconto de iliquidez',`${num('illiquidity').toFixed(2)}%`],['Valuation DCF ajustado',money(result.dcf.equityAdjusted)]],theme:'grid',styles:{fontSize:8,cellPadding:2.7,textColor:ink},columnStyles:{0:{fontStyle:'bold'}},margin:{left:M,right:M}});
+
+    y=newPage('5. Avaliação Relativa por Múltiplos');
+    if(result.methods.length===1){y=addWrapped('Nenhum múltiplo de mercado foi informado. Esta seção permanece sem resultado quantitativo e o relatório utiliza o DCF como método exclusivo.',M,y,176,9,muted)} else {doc.autoTable({startY:y,head:[['Múltiplo','Parâmetro','Equity Value ajustado']],body:[num('multipleSales')>0?['EV/Sales',num('multipleSales').toFixed(2)+'x',money(result.methods.find(m=>m.name==='EV/Sales').value)]:null,num('multipleEbit')>0?['EV/EBIT',num('multipleEbit').toFixed(2)+'x',money(result.methods.find(m=>m.name==='EV/EBIT').value)]:null,(num('multipleEbitda')>0&&num('ebitda')!==0)?['EV/EBITDA',num('multipleEbitda').toFixed(2)+'x',money(result.methods.find(m=>m.name==='EV/EBITDA').value)]:null].filter(Boolean),theme:'grid',styles:{fontSize:8,cellPadding:3,textColor:ink},headStyles:{fillColor:navy,textColor:[255,255,255]},margin:{left:M,right:M}});y=doc.lastAutoTable.finalY+10}
+    doc.setFontSize(10);doc.setTextColor(...navy);doc.setFont(undefined,'bold');doc.text('Fonte e justificativa',M,y);doc.setFont(undefined,'normal');addWrapped(txt('multipleSource'),M,y+7,176,8.5,muted);
+
+    y=newPage('6. Análise de Sensibilidade');
+    y=addWrapped('A matriz abaixo apresenta o Equity Value ajustado sob variações do WACC e da taxa de crescimento na perpetuidade. Ela deve ser interpretada como teste de sensibilidade, não como substituto do julgamento técnico.',M,y,176,8.5,ink)+6;
+    const w0=result.dcf.wacc,g0=result.dcf.tg;const wList=[w0-.02,w0-.01,w0,w0+.01,w0+.02];const gList=[g0-.01,g0-.005,g0,g0+.005,g0+.01];
+    const sensRows=wList.map(w=>[pct(w),...gList.map(g=>{try{return money(performDCF(w,g).equityAdjusted)}catch{return 'n/a'}})]);
+    doc.autoTable({startY:y,head:[['WACC \\ g',...gList.map(pct)]],body:sensRows,theme:'grid',styles:{fontSize:7,cellPadding:2.3,textColor:ink,halign:'right'},headStyles:{fillColor:navy,textColor:[255,255,255]},columnStyles:{0:{fontStyle:'bold',halign:'center'}},margin:{left:M,right:M}});
+
+    y=newPage('7. Conclusão Técnica');
+    doc.setFillColor(...light);doc.roundedRect(M,y,W-2*M,36,2,2,'F');doc.setFontSize(8);doc.setTextColor(...muted);doc.text('VALOR DE REFERÊNCIA PELO DCF',M+7,y+10);doc.setFontSize(18);doc.setTextColor(...navy);doc.setFont(undefined,'bold');doc.text(money(result.dcf.equityAdjusted),M+7,y+24);doc.setFont(undefined,'normal');y+=47;
+    if(result.methods.length>1){doc.setFontSize(8.5);doc.setTextColor(...ink);doc.text(`Faixa observada entre métodos: ${money(result.min)} a ${money(result.max)}.`,M,y);y+=10}
+    doc.setFontSize(10);doc.setTextColor(...navy);doc.setFont(undefined,'bold');doc.text('Conclusão do responsável técnico',M,y);doc.setFont(undefined,'normal');y=addWrapped(txt('technicalConclusion'),M,y+8,176,9,ink)+10;
+    if(y>220){y=newPage('7. Conclusão Técnica — assinatura')}
+    doc.setDrawColor(...navy);doc.line(M,y+31,105,y+31);doc.setFontSize(9);doc.setTextColor(...ink);doc.setFont(undefined,'bold');doc.text(safeText(txt('responsibleName')),M,y+38);doc.setFont(undefined,'normal');doc.setFontSize(8);doc.setTextColor(...muted);if(txt('responsibleTitle'))doc.text(txt('responsibleTitle'),M,y+44);if(txt('professionalId'))doc.text(txt('professionalId'),M,y+50);doc.text(`${safeText(txt('issuePlace'))}, ${new Date().toLocaleDateString('pt-BR')}`,M,y+58);
+
+    y=newPage('8. Limitações, Responsabilidade e Uso do Relatório');
+    const disclaimers=[
+      'Este relatório constitui avaliação econômico-financeira baseada nos dados e premissas fornecidos e validados pelo responsável técnico. Não representa garantia de preço de transação.',
+      'As projeções financeiras envolvem incerteza. Resultados futuros podem divergir materialmente das estimativas apresentadas.',
+      'O modelo utiliza metodologia de Fluxo de Caixa Descontado para a Firma e, quando informados, múltiplos de mercado como referência complementar. Os múltiplos e suas fontes são de responsabilidade de quem os inseriu.',
+      'A ferramenta não audita demonstrações contábeis, documentos societários, passivos contingentes, obrigações tributárias ou outras informações utilizadas como entrada.',
+      'O relatório não substitui auditoria, due diligence, laudo pericial, parecer jurídico, tributário ou contábil quando estes forem necessários ao propósito da operação.',
+      'Os dados preenchidos nesta ferramenta não são gravados no site. O PDF é gerado localmente no navegador do usuário.'
+    ];
+    disclaimers.forEach((t,i)=>{doc.setFillColor(...light);doc.circle(M+3,y-1,2.5,'F');doc.setFontSize(8.4);doc.setTextColor(...ink);const lines=doc.splitTextToSize(t,167);doc.text(lines,M+9,y);y+=lines.length*4.4+6;if(y>260&&i<disclaimers.length-1){y=newPage('8. Limitações, Responsabilidade e Uso do Relatório — continuação')}});
+    footer();
+    const filename=`Valuii_Valuation_${txt('companyName').replace(/[^a-zA-Z0-9À-ÿ]+/g,'_').replace(/^_|_$/g,'')}_${txt('valuationDate')||'data'}.pdf`;
+    doc.save(filename);
+    $('okBox').textContent='Relatório PDF gerado com sucesso.';$('okBox').classList.add('show');setTimeout(()=>$('okBox').classList.remove('show'),4500);window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function clearForm(){if(!confirm('Limpar todos os dados preenchidos nesta sessão?'))return;document.querySelectorAll('input:not([disabled]),textarea').forEach(el=>{if(el.id==='salesGrowth'||el.id==='ebitGrowth')el.value='10';else if(el.id==='roicProjected')el.value='25';else if(el.id==='terminalGrowth')el.value='4';else if(el.id==='taxRate')el.value='34';else if(el.id==='illiquidity')el.value='15';else if(el.id==='nonOperating')el.value='0';else if(el.id==='valuationDate')el.value=new Date().toISOString().slice(0,10);else el.value=''});lastResult=null;['sumKe','sumWacc','sumEv','sumEquityBefore','sumDcf','sumRange'].forEach(id=>$(id).textContent='—');$('errorBox').classList.remove('show');$('okBox').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'})}
+
+  $('valuationDate').value=new Date().toISOString().slice(0,10);
+  ['btnCalculate','btnCalculateTop'].forEach(id=>$(id).addEventListener('click',()=>calculate(true)));
+  ['btnPdf','btnPdfTop'].forEach(id=>$(id).addEventListener('click',generatePdf));
+  $('btnClear').addEventListener('click',clearForm);
+})();
+</script>
+</body>
+</html>
